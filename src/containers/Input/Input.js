@@ -41,8 +41,10 @@ class Input extends Component {
                 <div className="Input">
                     <h1>Enter a JSON string below</h1>
                     <div className="Form">
-                        <InputField value={this.state.inputFieldValue} changed={this.onChangeHandler}/>
-                        <div>
+                        <div className="inputBtns">
+                            <InputField value={this.state.inputFieldValue} changed={this.onChangeHandler}/>
+                        </div>
+                        <div className="inputBtns sendIt">
                             <Button addedStyle={this.props.btnStyle} clicked={this.onSendItHandler}>Send it</Button>
                             {/* <Button addedStyle={btnStyle} clicked={this.onClearHandler}>Clear</Button>  */}
                         </div>

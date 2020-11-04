@@ -50,13 +50,14 @@ class Output extends Component {
       this.props.formatted !== '' ? (
         <Auxiliary>
           <Button
+          className="btns"
           addedStyle={btnStyle}
           disabledButton={this.props.error}
           clicked={this.copyToClipboardHandler}
         >
           Copy JSON
           </Button>
-          <Button addedStyle={btnStyle} clicked={this.onClearHandler}>Clear</Button> 
+          <Button className="btns" addedStyle={btnStyle} clicked={this.onClearHandler}>Clear</Button> 
         </Auxiliary>
         
       ) : null;

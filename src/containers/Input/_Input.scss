@@ -20,3 +20,48 @@
     justify-content: center;
     margin: 3rem 0;
 }
+
+@media (max-width: 400px) {
+    .InputWrapper{
+        .Input {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+    }
+
+    .Form {
+        flex-direction: column;
+
+        &:nth-child(2) {
+            margin: 0 auto;
+            max-width: 25%;
+
+            .inputBtns {
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            .sendIt {
+                margin: inherit auto;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .Form {
+        flex-direction: column;
+
+        &:nth-child(2) {
+            margin: 0 auto;
+            max-width: 25%;
+
+            .inputBtns {
+                margin-top: 1rem;
+                width: 100%;
+            }
+        }
+    }
+}

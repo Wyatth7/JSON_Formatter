@@ -1,4 +1,12 @@
 .Converter {
     background-color: $converter-bk-color;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+@media (min-height: 850px) {
+    .Converter {
+        height: 100vh;
+    }
 }
