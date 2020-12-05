@@ -1,12 +1,119 @@
 .Converter {
-    background-color: $converter-bk-color;
+  position: relative;
+  width: 100%;
+
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
+    padding-top: 5rem;
+    height: 100vh;
+    width: 100%;
+    z-index: 100;
+    background-color: $white;
+    justify-content: center;
+    align-items: center;
 
-}
+    .links {
+      &--about,
+      &--tools,
+      &--close {
+        cursor: pointer;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 400;
+        width: 100%;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid $white;
+      }
 
-@media (min-height: 850px) {
-    .Converter {
-        height: 100vh;
+      &--close {
+        background-color: $white;
+        outline: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      }
     }
+  }
+
+  .Nav {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color: $white;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    &--logo {
+      color: #207dff;
+      display: flex;
+      h1 {
+        margin-left: 1rem;
+      }
+    }
+
+    &--links {
+      .links {
+        &--about,
+        &--tools {
+          display: none;
+        }
+
+        &--burger {
+          color: #207dff;
+        }
+      }
+    }
+  }
+  &--content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+
+    .about-section,
+    .tools-section {
+      h1,
+      h3 {
+        text-align: center;
+        font-weight: 300;
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      h3 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .line-break {
+        height: 1px;
+        width: 50%;
+        margin: 1rem auto 2rem auto;
+        background-color: $black;
+      }
+
+      p {
+        text-align: center;
+        font-size: 2rem;
+      }
+    }
+
+    .tools-section {
+      background-color: $gray-bk-color;
+      padding-bottom: 2rem;
+    }
+
+    &--content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }

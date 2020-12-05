@@ -1,48 +1,32 @@
 .Output {
+  width: 100%;
+  height: 100%;
+  background-color: $main-btn-color;
+
+  .OutputTextBox {
+    width: inherit;
+    height: inherit;
+
+    p {
+      color: $white;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    textarea {
+      outline: none;
+      width: inherit;
+      height: 15rem;
+    }
+  }
+
+  .buttons {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 0 10rem 15rem 15rem;
+    flex-direction: column;
+    margin-top: 1rem;
 
-    .copyBtn {
-        margin-top: 1rem;
+    &--copy {
+      margin-bottom: 1rem;
     }
-
-    .OutputTextBox {
-        width: 100rem;
-        height: 50rem;
-        background-color: #fff;
-        border-radius: 10px;
-        overflow: auto;
-    }
-
-    .formatted,
-    .unFormatted {
-    }
-
-    .formatted {
-        text-align: start;
-        padding: .5rem;
-        font-size: 3rem;
-    }
-    
-    .unFormatted { 
-        text-align: center; 
-        font-size: 4rem;
-    }
-}
-
-@media (min-width: 1583px) {
-    .Output {
-        flex-direction: column;
-        
-        .OutputTextBox {
-            width: 100%;
-        }
-
-        .copyBtn {
-            margin: 0 25%;
-        }
-    }
-
+  }
 }

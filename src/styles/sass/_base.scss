@@ -1,23 +1,55 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
-    height: 100vh;
-    font-weight: 300;
-    line-height: 1.6;
-    font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  font-family: "Roboto", sans-serif;
 }
 
 pre {
-    font-family: 'Roboto', monospace;
+  font-family: "Roboto", monospace;
+}
+
+textarea {
+  resize: vertical;
+  border: 1px solid $white;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.equalHW {
+  flex: 1;
+}
+
+// Global button formatted class
+.btn {
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: $default-btn-color;
+  border: 1px solid $default-btn-color;
+  border-radius: 5px;
+  color: $white;
+  outline: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: lighten($color: $default-btn-color, $amount: 10);
+    border: 1px solid lighten($color: $default-btn-color, $amount: 10);
+  }
+}
+
+.padding {
+  padding: 3rem;
 }

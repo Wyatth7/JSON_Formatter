@@ -1,8 +1,7 @@
-import React from 'react';
-import './App.css';
-import './styles/css/styles.css';
+import React from "react";
+import "./styles/css/styles.css";
 
-import Converter from './containers/Converter/Converter';
+import Converter from "./containers/Converter/Converter";
 
 function App() {
   return (

@@ -2,78 +2,54 @@ import React, { Component } from "react";
 import copy from "copy-to-clipboard";
 import "../../styles/css/styles.css";
 
-
 import Button from "../../components/UI/Button/Button";
-import Auxiliary from '../../hoc/Auxiliary';
+import Auxiliary from "../../hoc/Auxiliary";
 
 class Output extends Component {
   state = {
     clear: this.props.isInput,
     noText: `Your JSON will be here when you send it!`,
-    couldNotParse: 'There was something wrong with your input.\n Please try again. :('
+    error: "There was an error within your JSON data.",
   };
 
   // copies text inside of displayPara to the users clipboard.
-  // alerts user text has been copied 
+  // alerts user text has been copied
   copyToClipboardHandler = () => {
     copy(this.props.formatted);
     alert("Copied to clipboard");
   };
 
-
-
+  // Calls the clear method passed via props
   onClearHandler = () => {
     this.props.clear();
-    // this.props.clear();
-  }
+  };
 
   render() {
-
-    let displayPara;
-
-    if (this.props.isInput) {
-      displayPara = <pre className="formatted">{this.props.formatted}</pre>
-    } else if (!this.props.isInput) {
-      displayPara = <p className="unFormatted">{this.state.noText}</p>
-    }
-
-    // let displayPara =
-    //   this.props.input !== "" ? (
-    //     <pre className="formatted">{this.props.formatted}</pre>
-    //   ) : (
-    //     <p className="unFormatted">{this.state.unFormatted}</p>
-    //   );
-
-    const btnStyle = {margin: ' 1rem auto 0 auto', width: '25%'};
-
-    let displayCopyBtn =
-      this.props.formatted !== '' ? (
-        <Auxiliary>
-          <Button
-          className="btns"
-          addedStyle={btnStyle}
-          disabledButton={this.props.error}
-          clicked={this.copyToClipboardHandler}
-        >
-          Copy JSON
-          </Button>
-          <Button className="btns" addedStyle={btnStyle} clicked={this.onClearHandler}>Clear</Button> 
-        </Auxiliary>
-        
-      ) : null;
+    // If there is an error in the user's data, an error message
+    // will be displayed. If there is no error, the user's formatted
+    // string will be shown.
+    // let displayText = null;
+    // this.props.error
+    //   ? (displayText = this.state.error)
+    //   : (displayText = this.props.formatted);
 
     return (
-      <div className="Output">
+      <div className="Output padding">
         <div className="OutputTextBox">
-            {this.props.error 
-            ? (
-                // <Auxiliary>
-                    <p className="unFormatted">{this.state.couldNotParse}</p>
-                // </Auxiliary>
-                ) : displayPara }
-
+          <p>Formatted data</p>
+          <textarea value={this.props.formatted} readOnly></textarea>
         </div>
-        {displayCopyBtn}
+        <div className="buttons">
+          <button
+            className="btn buttons--copy"
+            onClick={this.copyToClipboardHandler}
+          >
+            Copy
+          </button>
+          <button className="btn buttons--clear" onClick={this.onClearHandler}>
+            Clear
+          </button>
+        </div>
       </div>
     );
   }

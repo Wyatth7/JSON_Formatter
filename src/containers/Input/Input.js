@@ -1,58 +1,54 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import '../../styles/css/styles.css';
-
-import InputField from '../../components/UI/InputField/InputField';
-import Button from '../../components/UI/Button/Button';
+import "../../styles/css/styles.css";
 
 class Input extends Component {
-    state = {
-        inputFieldValue: '',
-    }
+  state = {
+    inputFieldValue: "",
+  };
 
-    // executes when input is changed.
-    // sends InputField value to Converter.js.
-    onChangeHandler = event => {
-        this.setState({inputFieldValue: event.target.value});
-        // this.props.change(event.target.value);
-    }
+  // executes when input is changed.
+  // sends InputField value to Converter.js.
+  onChangeHandler = (event) => {
+    this.setState({ inputFieldValue: event.target.value });
+    // this.props.change(event.target.value);
+  };
 
-    // excecuted when send it btn is pressed and clears the input field.
-    // sets inputFieldValue to an empty string which updates the inputs value to
-    // nothing.
-    onSendItHandler = () => {
-        this.props.change(this.state.inputFieldValue);
-        this.setState({inputFieldValue: ''});
-        if (this.props.error) {
-            this.props.changeError();
-        }
+  // excecuted when send it btn is pressed and clears the input field.
+  // sets inputFieldValue to an empty string, which updates the inputs value to
+  // nothing.
+  onSendItHandler = (e) => {
+    e.preventDefault();
+    this.props.change(this.state.inputFieldValue);
+    if (this.props.error) {
+      this.props.changeError();
     }
+  };
 
-    // executes when clear btn is pressed.
-    // updated Converter.js's state as well as calls onClearHander in Converter.js 
-    onClearHandler = () => {
-        this.props.clear();
-        // this.props.clear();
-    }
+  // executes when clear btn is pressed.
+  // updated Converter.js's state as well as calls onClearHander in Converter.js
+  onClearHandler = () => {
+    this.props.clear();
+    // this.props.clear();
+  };
 
-    render() {
-        return (
-            <div className="InputWrapper">
-                <div className="Input">
-                    <h1>Enter a JSON string below</h1>
-                    <div className="Form">
-                        <div className="inputBtns">
-                            <InputField value={this.state.inputFieldValue} changed={this.onChangeHandler}/>
-                        </div>
-                        <div className="inputBtns sendIt">
-                            <Button addedStyle={this.props.btnStyle} clicked={this.onSendItHandler}>Send it</Button>
-                            {/* <Button addedStyle={btnStyle} clicked={this.onClearHandler}>Clear</Button>  */}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="Input equalHW padding" id="Input">
+        <form onSubmit={this.onSendItHandler}>
+          <p>JSON data</p>
+          <textarea
+            onChange={this.onChangeHandler}
+            placeholder="{ }"
+            name="jsonDataInput"
+          ></textarea>
+          <button onClick={this.onSendItHandler} className="btn">
+            Send it
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default Input;

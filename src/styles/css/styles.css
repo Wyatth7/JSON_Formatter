@@ -10,13 +10,38 @@ html {
   font-size: 62.5%; }
 
 body {
-  height: 100vh;
   font-weight: 300;
   line-height: 1.6;
-  font-family: 'Roboto', sans-serif; }
+  font-family: "Roboto", sans-serif; }
 
 pre {
-  font-family: 'Roboto', monospace; }
+  font-family: "Roboto", monospace; }
+
+textarea {
+  resize: vertical;
+  border: 1px solid #fff;
+  padding: 1rem;
+  border-radius: 5px; }
+
+.equalHW {
+  flex: 1; }
+
+.btn {
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #55ba3f;
+  border: 1px solid #55ba3f;
+  border-radius: 5px;
+  color: #fff;
+  outline: none;
+  transition: all 0.2s; }
+  .btn:hover {
+    background-color: #75ca62;
+    border: 1px solid #75ca62; }
+
+.padding {
+  padding: 3rem; }
 
 .InputField {
   padding: 10px;
@@ -39,80 +64,153 @@ pre {
   cursor: pointer; }
 
 .Converter {
-  background-color: #43658b;
-  display: flex;
-  flex-direction: column; }
+  position: relative;
+  width: 100%; }
+  .Converter .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
+    height: 100vh;
+    width: 100%;
+    z-index: 100;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center; }
+    .Converter .mobile-nav .links--about, .Converter .mobile-nav .links--tools, .Converter .mobile-nav .links--close {
+      cursor: pointer;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 400;
+      width: 100%;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #fff; }
+    .Converter .mobile-nav .links--close {
+      background-color: #fff;
+      outline: none;
+      border-top: none;
+      border-left: none;
+      border-right: none; }
+  .Converter .Nav {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between; }
+    .Converter .Nav--logo {
+      color: #207dff;
+      display: flex; }
+      .Converter .Nav--logo h1 {
+        margin-left: 1rem; }
+    .Converter .Nav--links .links--about, .Converter .Nav--links .links--tools {
+      display: none; }
+    .Converter .Nav--links .links--burger {
+      color: #207dff; }
+  .Converter--content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem; }
+    .Converter--content .about-section h1,
+    .Converter--content .about-section h3,
+    .Converter--content .tools-section h1,
+    .Converter--content .tools-section h3 {
+      text-align: center;
+      font-weight: 300; }
+    .Converter--content .about-section h1,
+    .Converter--content .tools-section h1 {
+      font-size: 4rem; }
+    .Converter--content .about-section h3,
+    .Converter--content .tools-section h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem; }
+    .Converter--content .about-section .line-break,
+    .Converter--content .tools-section .line-break {
+      height: 1px;
+      width: 50%;
+      margin: 1rem auto 2rem auto;
+      background-color: #000; }
+    .Converter--content .about-section p,
+    .Converter--content .tools-section p {
+      text-align: center;
+      font-size: 2rem; }
+    .Converter--content .tools-section {
+      background-color: #f5f5f5;
+      padding-bottom: 2rem; }
+    .Converter--content--content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column; }
 
-@media (min-height: 850px) {
-  .Converter {
-    height: 100vh; } }
-
-.InputWrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 3rem 0; }
-  .InputWrapper .Input h1 {
-    text-align: center;
-    color: #fff;
-    font-size: 4rem;
-    font-weight: 300; }
-
-.Form {
-  display: flex;
-  justify-content: center;
-  margin: 3rem 0; }
-
-@media (max-width: 400px) {
-  .InputWrapper .Input h1 {
-    font-size: 3rem; }
-  .Form {
-    flex-direction: column; }
-    .Form:nth-child(2) {
-      margin: 0 auto;
-      max-width: 25%; }
-      .Form:nth-child(2) .inputBtns {
-        margin-top: 1rem;
-        width: 100%; }
-      .Form:nth-child(2) .sendIt {
-        margin: inherit auto;
-        width: 100%; } }
-
-@media (max-width: 720px) {
-  .Form {
-    flex-direction: column; }
-    .Form:nth-child(2) {
-      margin: 0 auto;
-      max-width: 25%; }
-      .Form:nth-child(2) .inputBtns {
-        margin-top: 1rem;
-        width: 100%; } }
+.Input {
+  background-color: #fb4351;
+  width: 100%; }
+  .Input form {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    height: inherit; }
+    .Input form p {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 400; }
+    .Input form textarea {
+      outline: none;
+      width: inherit;
+      height: 30rem;
+      resize: none; }
+    .Input form button {
+      width: 100%;
+      margin: 2rem auto 0 auto; }
 
 .Output {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 0 10rem 15rem 15rem; }
-  .Output .copyBtn {
-    margin-top: 1rem; }
+  width: 100%;
+  height: 100%;
+  background-color: #68aad3; }
   .Output .OutputTextBox {
-    width: 100rem;
-    height: 50rem;
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: auto; }
-  .Output .formatted {
-    text-align: start;
-    padding: .5rem;
-    font-size: 3rem; }
-  .Output .unFormatted {
-    text-align: center;
-    font-size: 4rem; }
+    width: inherit;
+    height: inherit; }
+    .Output .OutputTextBox p {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 400; }
+    .Output .OutputTextBox textarea {
+      outline: none;
+      width: inherit;
+      height: 15rem; }
+  .Output .buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem; }
+    .Output .buttons--copy {
+      margin-bottom: 1rem; }
 
-@media (min-width: 1583px) {
-  .Output {
-    flex-direction: column; }
-    .Output .OutputTextBox {
-      width: 100%; }
-    .Output .copyBtn {
-      margin: 0 25%; } }
+.ToolBox {
+  cursor: pointer;
+  margin: 0 auto 2rem auto;
+  padding: 2rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  transition: all 0.2s; }
+  .ToolBox:hover {
+    background-color: #68aad3;
+    border: 1px solid #fff;
+    color: #fff; }
+  .ToolBox div h2 {
+    font-size: 3rem;
+    font-weight: 300; }
+  .ToolBox div .icon {
+    text-align: center; }

@@ -1,67 +1,28 @@
-.InputWrapper { 
+.Input {
+  background-color: $red-bk-color;
+  width: 100%;
+  form {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    padding: 3rem 0;
-    .Input {
+    width: inherit;
+    height: inherit;
 
-        h1 {
-            text-align: center;
-            color: $white-font;
-            font-size: 4rem;
-            font-weight: 300;
-        }
+    p {
+      color: $white;
+      font-size: 2rem;
+      font-weight: 400;
     }
 
-}
-
-.Form {
-    display: flex;
-    justify-content: center;
-    margin: 3rem 0;
-}
-
-@media (max-width: 400px) {
-    .InputWrapper{
-        .Input {
-            h1 {
-                font-size: 3rem;
-            }
-        }
+    textarea {
+      outline: none;
+      width: inherit;
+      height: 30rem;
+      resize: none;
     }
 
-    .Form {
-        flex-direction: column;
-
-        &:nth-child(2) {
-            margin: 0 auto;
-            max-width: 25%;
-
-            .inputBtns {
-                margin-top: 1rem;
-                width: 100%;
-            }
-
-            .sendIt {
-                margin: inherit auto;
-                width: 100%;
-            }
-        }
+    button {
+      width: 100%;
+      margin: 2rem auto 0 auto;
     }
-}
-
-@media (max-width: 720px) {
-    .Form {
-        flex-direction: column;
-
-        &:nth-child(2) {
-            margin: 0 auto;
-            max-width: 25%;
-
-            .inputBtns {
-                margin-top: 1rem;
-                width: 100%;
-            }
-        }
-    }
+  }
 }

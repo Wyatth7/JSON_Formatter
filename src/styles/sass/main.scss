@@ -1,6 +1,6 @@
 // imports base components
-@import "./base";
 @import "./variables";
+@import "./base";
 
 // UI components
 @import "../../components/UI/InputField/InputField";
@@ -10,3 +10,4 @@
 @import "../../containers/Converter/Converter";
 @import "../../containers/Input/Input";
 @import "../../containers/Output/Output";
+@import "./../../components/MoreToolsSection/ToolBox/ToolBox";
