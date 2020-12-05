@@ -158,7 +158,7 @@ class Converter extends Component {
 
     return (
       <div id="converterID" className="Converter">
-        <div className="Nav">
+        <div className="Nav padding">
           <div
             className="Nav--logo"
             onClick={() => {
@@ -169,10 +169,18 @@ class Converter extends Component {
             <h1>JSON Formatter</h1>
           </div>
           <div className="Nav--links">
-            <Link className={`links--about`} to="about">
+            <Link
+              className={`links--about`}
+              onClick={this.scrollToAboutHandler}
+              to="about"
+            >
               About
             </Link>
-            <Link className={`links--tools`} to="moreTools">
+            <Link
+              className={`links--tools`}
+              onClick={this.scrollToToolsHandler}
+              to="moreTools"
+            >
               More Tools
             </Link>
             <div onClick={this.openNavModal} className="links--burger">
@@ -223,16 +231,22 @@ class Converter extends Component {
                 </p>
               </div>
               <div className="tool-links">
-                <ToolBox
-                  icon="money"
-                  title="Curringo"
-                  text="Convert over 30 global currencies."
-                />
-                <ToolBox
-                  icon="image"
-                  title="File Stop"
-                  text="Upload, edit, and download your favorite pictures."
-                />
+                <div>
+                  <ToolBox
+                    href="https://curringo.herokuapp.com/"
+                    icon="money"
+                    title="Curringo"
+                    text="Convert over 30 global currencies."
+                  />
+                </div>
+                <div>
+                  <ToolBox
+                    href="https://filestop.herokuapp.com/"
+                    icon="image"
+                    title="File Stop"
+                    text="Upload, edit, and download your favorite pictures."
+                  />
+                </div>
               </div>
             </div>
           </Element>

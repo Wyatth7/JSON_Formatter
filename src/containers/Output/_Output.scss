@@ -30,3 +30,15 @@
     }
   }
 }
+
+@media only screen and (min-width: 1650px) {
+  .Output {
+    .buttons {
+      width: 25%;
+      margin: 1rem auto 0 auto;
+      &--copy {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
